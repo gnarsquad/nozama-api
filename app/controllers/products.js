@@ -12,8 +12,15 @@ const index = (req, res, next) => {
     .catch(err => next(err));
 };
 
+const show = (req, res, next) => {
+  Product.findById(req.params.id)
+    .then(product => product ? res.json({ product }) : next())
+    .catch(err => next(err));
+};
+
 module.exports = controller({
   index,
+  show,
 }, { before: [
   { method: authenticate, except: ['index', 'show'] },
 ], });
