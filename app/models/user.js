@@ -14,9 +14,8 @@ const userSchema = new mongoose.Schema({
     type: String,
     require: true,
   },
-  cart: {},
   passwordDigest: String,
-  }, {
+}, {
   timestamps: true,
 });
 
