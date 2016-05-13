@@ -18,9 +18,19 @@ const show = (req, res, next) => {
     .catch(err => next(err));
 };
 
+const create = (req, res, next) => {
+  let product = Object.assign(req.body.product, {
+    _owner: req.currentUser._id,
+  });
+  Product.create(product)
+    .then(product => res.json({ product }))
+    .catch(err => next(err));
+};
+
 module.exports = controller({
   index,
   show,
+  create,
 }, { before: [
   { method: authenticate, except: ['index', 'show'] },
 ], });
