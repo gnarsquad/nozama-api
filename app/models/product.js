@@ -2,8 +2,15 @@
 
 const mongoose = require('mongoose');
 
-const productSchema = new mongoose.Schema({
+require('mongoose-currency').loadType(mongoose);
+let Currency = mongoose.Types.Currency;
 
+const productSchema = new mongoose.Schema({
+  type: String,
+  subtype: String,
+  name: String,
+  description: String,
+  price: { type: Currency, required: true, min: -20000, max: 50000 }
 });
 
 const Product = mongoose.model('Product', productSchema);
