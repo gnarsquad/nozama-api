@@ -1,6 +1,6 @@
 'use strict';
 
-const debug = require('debug')('express-template:users');
+const debug = require('debug')('nozama-api:users');
 
 const controller = require('lib/wiring/controller');
 const models = require('app/models');
