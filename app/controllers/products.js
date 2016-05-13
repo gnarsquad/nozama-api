@@ -27,10 +27,26 @@ const create = (req, res, next) => {
     .catch(err => next(err));
 };
 
+const update = (req, res, next) => {
+  let search = { _id: req.params.id, _owner: req.currentUser._id };
+  Product.findOne(search)
+    .then(product => {
+      if (!product) {
+        return next();
+      }
+
+      delete req.body._owner;  // disallow owner reassignment.
+      return product.update(req.body.product)
+        .then(() => res.sendStatus(200));
+    })
+    .catch(err => next(err));
+};
+
 module.exports = controller({
   index,
   show,
   create,
+  update,
 }, { before: [
   { method: authenticate, except: ['index', 'show'] },
 ], });
