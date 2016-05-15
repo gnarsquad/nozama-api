@@ -8,12 +8,16 @@ const orderSchema = new mongoose.Schema({
     ref: 'User',
     required: true
   },
-  products: {
-    // Correct format?
-    type: mongoose.Schema.Types.Array,
+  product: {
+    type: String,
     ref: 'Product',
-    required: true
+    required: true,
   },
+  quantity: {
+    type: Number,
+    required: true,
+    default: 1
+  }
 },
   {timestamps: true
 });

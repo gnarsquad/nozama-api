@@ -7,9 +7,9 @@ const Order = models.order;
 const authenticate = require('./concerns/authenticate');
 
 const index = (req, res, next) => {
-  Order.find()
-  .then((orders) => res.json({ orders }))
-  .catch((err) => next(err));
+  Order.findById(req.currentUser._id)
+  .then(order => order ? res.json({ order }): next())
+  .catch(err => next(err));
 };
 
 const create = (req, res, next) => {
@@ -22,15 +22,30 @@ const create = (req, res, next) => {
 };
 
 const show = (req, res, next) => {
-  Order.findById(req.currentUser._id)
+  Order.findById(req.params.id)
   .then(order => order ? res.json({ order }): next())
+  .catch(err => next(err));
+};
+
+const destroy = (req, res, next) => {
+  let search = {_id: req.params.id, _owner: req.currentUser._id};
+  Order.findOne(search)
+  .then(order => {
+    if (!order) {
+      return next();
+    }
+
+    return order.remove()
+    .then(() => res.sendStatus(200));
+  })
   .catch(err => next(err));
 };
 
 module.exports = controller({
   index,
   create,
-  show
+  show,
+  destroy
 }, {before: [
-  {method: authenticate, except: ['index'] },
+  {method: authenticate, except: ['index', 'destroy', 'index', 'create', 'show'] },
 ], });
