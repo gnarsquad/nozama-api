@@ -1,5 +1,4 @@
-ID=
-TOKEN=fkO4ic0Jci/ZnWiLrptaqL6OLHGWrq/K4DHoumCU3f8=--nfuCPufyzGuJb0pl6Gh7YhaVfmKY71r/1FnHDasSTzo=
+TOKEN=DVcEfaALnW5By1RZt2fG9IV/21bkU6o4R4ptcAEGYrg=--9tnAdtyV3rHNZGQu89+q0JF6wwHfVHofTf0IFlfaJjk=
 curl --include --request POST http://localhost:3000/orders \
   --header "Authorization: Token token=$TOKEN" \
   --header "Content-Type: application/json" \
