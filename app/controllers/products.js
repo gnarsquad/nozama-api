@@ -1,5 +1,7 @@
 'use strict';
 
+//for use if we include admin functionality
+
 const controller = require('lib/wiring/controller');
 const models = require('app/models');
 const Product = models.products;
