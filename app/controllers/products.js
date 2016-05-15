@@ -4,7 +4,7 @@
 
 const controller = require('lib/wiring/controller');
 const models = require('app/models');
-const Product = models.products;
+const Product = models.product;
 
 const authenticate = require('./concerns/authenticate');
 
