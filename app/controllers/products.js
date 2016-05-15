@@ -21,16 +21,14 @@ const show = (req, res, next) => {
 };
 
 const create = (req, res, next) => {
-  let product = Object.assign(req.body.product, {
-    _owner: req.currentUser._id,
-  });
+  let product = Object.assign(req.body.product);
   Product.create(product)
     .then(product => res.json({ product }))
     .catch(err => next(err));
 };
 
 const update = (req, res, next) => {
-  let search = { _id: req.params.id, _owner: req.currentUser._id };
+  let search = { _id: req.params.id};
   Product.findOne(search)
     .then(product => {
       if (!product) {
@@ -45,7 +43,7 @@ const update = (req, res, next) => {
 };
 
 const destroy = (req, res, next) => {
-  let search = { _id: req.params.id, _owner: req.currentUser._id };
+  let search = { _id: req.params.id};
   Product.findOne(search)
     .then(product => {
       if (!product) {
@@ -65,5 +63,5 @@ module.exports = controller({
   update,
   destroy,
 }, { before: [
-  { method: authenticate, except: ['index', 'show'] },
+  { method: authenticate, except: ['index', 'show', 'update', 'destroy', 'create'] },
 ], });
