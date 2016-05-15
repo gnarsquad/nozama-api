@@ -25,7 +25,6 @@ module.exports = require('lib/wiring/routes')
 
 .resources('products')
 
-.resources('/users/:id', { only: ['index', 'show', 'patch'] })
 
 
 // all routes created
