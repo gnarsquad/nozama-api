@@ -1,7 +1,6 @@
 'use strict';
 
 const mongoose = require('mongoose');
-require('mongoose-type-url');
 
 const productSchema = new mongoose.Schema({
   type: {
@@ -23,7 +22,8 @@ const productSchema = new mongoose.Schema({
     required: true,
   },
   image: {
-      url: {type: mongoose.SchemaTypes.Url, required: true},
+    type: String,
+    required: true,
   },
 }, {
   timestamps: true,
