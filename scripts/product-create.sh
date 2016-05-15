@@ -1,4 +1,4 @@
-TOKEN=''
+TOKEN='pVusYaGnlSX2BOs4R8sxwPMQ+Lw6Wy+3YtZX8Up5gs8=--/v6Fu/MkgCjw+lGf6fFv5wfS1NaSS5GD3pOY8kFS+Qk='
 curl --include --request POST http://localhost:3000/products \
   --header "Authorization: Token token=$TOKEN" \
   --header "Content-Type: application/json" \
