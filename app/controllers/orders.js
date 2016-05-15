@@ -21,9 +21,16 @@ const create = (req, res, next) => {
   .catch(err => next(err));
 };
 
+const show = (req, res, next) => {
+  Order.findById(req.currentUser._id)
+  .then(order => order ? res.json({ order }): next())
+  .catch(err => next(err));
+};
+
 module.exports = controller({
   index,
-  create
+  create,
+  show
 }, {before: [
   {method: authenticate, except: ['index'] },
 ], });
