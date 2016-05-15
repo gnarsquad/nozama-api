@@ -30,10 +30,6 @@ const productSchema = new mongoose.Schema({
   toJSON: { virtuals: true },
 });
 
-productSchema.virtual('length').get(function length() {
-  return this.text.length;
-});
-
 const Product = mongoose.model('Product', productSchema);
 
 module.exports = Product;
