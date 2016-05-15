@@ -4,15 +4,34 @@ const mongoose = require('mongoose');
 require('mongoose-type-url');
 
 const productSchema = new mongoose.Schema({
-  type: String,
+  type: {
+    type: String,
+    required: true,
+  },
   subtype: String,
-  name: String,
+  name: {
+    type: String,
+    required: true
+  },
   description: String,
-  price: Number,
-  stock: Number,
+  price: {
+    type: Number,
+    required: true,
+  },
+  stock: {
+    type: Number,
+    required: true,
+  },
   image: {
       url: {type: mongoose.SchemaTypes.Url, required: true},
-    }
+  },
+}, {
+  timestamps: true,
+  toJSON: { virtuals: true },
+});
+
+productSchema.virtual('length').get(function length() {
+  return this.text.length;
 });
 
 const Product = mongoose.model('Product', productSchema);
