@@ -3,7 +3,6 @@
 const bcrypt = require('bcrypt');
 const mongoose = require('mongoose');
 const uniqueValidator = require('mongoose-unique-validator');
-const lineItems = require('app/models/lineitems');
 
 const userSchema = new mongoose.Schema({
   email: {
