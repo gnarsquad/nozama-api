@@ -1,4 +1,19 @@
-type,subtype,name,description,price,stock,image
+type,subtype,name,description,price,image
 
-clothing,t-shirt,wolf shirt,the last shirt you'll ever need,15.99,900,http://www.animalshirts.net/wolfshirts/10_3451.jpg
-sorcery,transmutation,Horadric Cube,stay a while and listen,7.60,1,http://vignette1.wikia.nocookie.net/diablo/images/8/89/Cain_face.jpg/revision/latest?cb=20080721202508
+clothing,t-shirt,Wolf Shirt,The last shirt you'll ever need,15.99,http://i.imgur.com/VovZGxM.png
+upgrade,transmutation,Horadric Cube,Stay a while and listen,7.60,http://vignette2.wikia.nocookie.net/diablo/images/b/b2/Horadric_Cube2.png/revision/latest?cb=20150629101617
+book,fiction,The Art of the Deal,Donald Trump- "this book is tremendous",8,http://i.imgur.com/361a5J6.jpg
+upgrade,health,Heart Container,Hey, listen!  Increase your maximum health,40,http://vignette4.wikia.nocookie.net/zelda/images/1/1b/Heart_Container_(Majora's_Mask).png/revision/latest?cb=20120406205109
+book,non-fiction,Necronomicon,Delight your friends with this ancient grimoire!,666,https://cnet2.cbsistatic.com/hub/i/r/2015/10/29/6889990f-e6ea-430e-8a1f-0ac9eaa852ff/thumbnail/670x503/8f6de5c9ce31cb3856802abbdd1849bb/evildeadnecronomicon.jpg
+clothing,armor,Mjolnir,Regenerating shields keep you alive in this stylish battleskin,3500,http://vignette2.wikia.nocookie.net/halo/images/a/ae/Template_small.jpg/revision/latest?cb=20110608014115
+upgrade,flower,Fire Flower,Great balls o' fire,34,http://www.mariowiki.com/images/thumb/6/6a/FireFlowerMK8.png/200px-FireFlowerMK8.png
+clothing,shoes,Sonic's Shoes,Gotta go fast!,120,http://static2.wikia.nocookie.net/__cb20130727145705/fantendo/images/3/3f/SonicShoes.png
+vehicle,tank,Siege Tank,Fortify your position today!,73000,http://static.giantbomb.com/uploads/original/5/56832/2528022-sc2_siege_tank_render_by_ebug9.png
+clothing,t-shirt,Tuxedo Tee,Casual formal wear at its finest,20,http://ecx.images-amazon.com/images/I/61dw7LlHAwL._UX342_.jpg
+upgrade,health,Soul Sphere,+200 health to face down demonspawn,88,https://soulsphere.org/favicon.png
+vehicle,plane,Arwing,Do a barrel roll!,290000,http://pre04.deviantart.net/6c11/th/pre/f/2014/233/d/3/arwing__starfox_64__by_cagallirr-d7w5bfn.png
+vehicle,car,KITT,An advanced artificially intelligent, self-aware and nearly indestructible car,67000,http://i.kinja-img.com/gawker-media/image/upload/s--AOFYjiFN--/1881c1guhs9zbjpg.jpg
+clothing,armor,Space Marine Power Armor,Fight the enemies of the Emperor with this tank-like personal armor,48000,https://www.frontlinegaming.org/wp-content/uploads/2013/09/storm-wardens.png
+clothing,pants,Techno Trousers,Can take your dog for walks on its own,500,http://s3.amazonaws.com/auteurs_production/images/film/wallace-gromit-in-the-wrong-trousers/w856/wallace-gromit-in-the-wrong-trousers.jpg
+upgrade,ball,Dragon Ball,Collect all 7 to make a wish!,88,http://ecx.images-amazon.com/images/I/51lIPqnkwXL._SY355_.jpg
+clothing,pants,Parachute Pants,Can't touch this,54,http://i1105.photobucket.com/albums/h356/bebee03/Guest%20Bloggers/KatieFetting-SchlerfGreatMomentsintheEvolutionofPants07Parachutepants.jpg
