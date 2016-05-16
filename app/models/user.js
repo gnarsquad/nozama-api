@@ -3,6 +3,7 @@
 const bcrypt = require('bcrypt');
 const mongoose = require('mongoose');
 const uniqueValidator = require('mongoose-unique-validator');
+const lineItems = require('app/models/lineitems');
 
 const userSchema = new mongoose.Schema({
   email: {
@@ -14,12 +15,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     require: true,
   },
-  cart: {
-    product:{
-      qty: Number,
-      price: Number
-    }
-  },
+  cart: [],
   passwordDigest: String,
   }, {
   timestamps: true,

@@ -1,35 +1,15 @@
 'use strict';
 
 const mongoose = require('mongoose');
+const lineItem = require('app/models/lineitems');
 
 const orderSchema = new mongoose.Schema({
     _owner: {
        type: mongoose.Schema.Types.ObjectId,
        ref: 'User',
-       required: false 
+       required: false
      },
-     lineItems: [{
-         product: {
-         quantity: {
-           type: Number,
-           required: true,
-           default: 1
-         },
-         productid: {
-           type: mongoose.Schema.Types.ObjectId,
-           ref: 'Product',
-           required: true
-         },
-         name: {
-           type: String,
-           required: true
-         },
-         price: {
-           type: Number,
-           required: true
-         }
-       }
-     }]
+     lineItems: [lineItem]
    },
      {timestamps: true
  });
