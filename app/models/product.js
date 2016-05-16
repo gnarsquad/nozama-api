@@ -23,7 +23,7 @@ const productSchema = new mongoose.Schema({
   },
 }, {
   timestamps: true,
-  toJSON: { virtuals: true },
+  // toJSON: { virtuals: true },
 });
 
 const Product = mongoose.model('Product', productSchema);

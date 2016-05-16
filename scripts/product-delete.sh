@@ -1,4 +1,4 @@
-TOKEN='RxyaIANUXBlwEPgIiqnvlY2znOKRs8nMn/Yy10DxS4I=--QL8SQh40wkxWlVcSABi9ts8zvithDW4mGbrmcw3ZpKA='
-ID='5739de8e4cda762711df99c1'
+TOKEN='yazHjHYv6dMsd6V7LGWnCzKAVftczyNKoI8oiCFylbA=--9HNGPfwBMOobwUJ8BsP33EraxVB+H36+/ThstJ+8uw0='
+ID='5739e0664cda762711df99c2'
 curl --include --request DELETE http://localhost:3000/products/$ID \
      --header "Authorization: Token token=$TOKEN" \

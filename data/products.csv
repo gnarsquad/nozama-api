@@ -2,7 +2,7 @@ type,subtype,name,description,price,image
 
 clothing,t-shirt,Wolf Shirt,The last shirt you'll ever need,15.99,http://i.imgur.com/VovZGxM.png
 upgrade,transmutation,Horadric Cube,Stay a while and listen,7.60,http://vignette2.wikia.nocookie.net/diablo/images/b/b2/Horadric_Cube2.png/revision/latest?cb=20150629101617
-book,fiction,The Art of the Deal,Donald Trump- "this book is tremendous",8,http://i.imgur.com/361a5J6.jpg
+book,fiction,The Art of the Deal,Donald Trump- this book is tremendous,8,http://i.imgur.com/361a5J6.jpg
 upgrade,health,Heart Container,Hey, listen!  Increase your maximum health,40,http://vignette4.wikia.nocookie.net/zelda/images/1/1b/Heart_Container_(Majora's_Mask).png/revision/latest?cb=20120406205109
 book,non-fiction,Necronomicon,Delight your friends with this ancient grimoire!,666,https://cnet2.cbsistatic.com/hub/i/r/2015/10/29/6889990f-e6ea-430e-8a1f-0ac9eaa852ff/thumbnail/670x503/8f6de5c9ce31cb3856802abbdd1849bb/evildeadnecronomicon.jpg
 clothing,armor,Mjolnir,Regenerating shields keep you alive in this stylish battleskin,3500,http://vignette2.wikia.nocookie.net/halo/images/a/ae/Template_small.jpg/revision/latest?cb=20110608014115

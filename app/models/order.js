@@ -6,16 +6,16 @@ const orderSchema = new mongoose.Schema({
     _owner: {
        type: mongoose.Schema.Types.ObjectId,
        ref: 'User',
-       required: true
+       required: false 
      },
-     lineItems: [
-       {product: {
+     lineItems: [{
+         product: {
          quantity: {
            type: Number,
            required: true,
            default: 1
          },
-         id: {
+         productid: {
            type: mongoose.Schema.Types.ObjectId,
            ref: 'Product',
            required: true
