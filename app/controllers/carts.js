@@ -2,7 +2,7 @@
 
 const controller = require('lib/wiring/controller');
 const models = require('app/models');
-const Cart = models.user.cart;
+// const Cart = models.user.cart;
 // const lineItems = models.lineItem;
 const User = models.user;
 const authenticate = require('./concerns/authenticate');
@@ -17,30 +17,26 @@ const addToCart = (req, res, next) => {
   .catch(err => next(err));
 };
 
+
 const index = (req, res, next) => {
-  Cart.find()
+  User.find('cart')
   .then(carts => res.json({ carts }))
   .catch(err => next(err));
 };
-//
-// const show = (req, res, next) => {
-//   Cart.findById(req.params.id)
-//   .then(cart => cart ? res.json({ cart }): next())
-//   .catch(err => next(err));
-// };
-//
-// const create = (req, res, next) => {
-//   let cart = Object.assign(req.body.cart, {
-//     _owner: req.currentUser._id
-//   });
-//   Cart.create(cart)
-//   .then(cart => res.json({ cart }))
-//   .catch(err => next(err));
-// };
+
+const show = (req, res, next) => {
+  User.cart.findById(req.currentUser._id)
+  .then(cart => cart ? res.json({ cart }): next())
+  .catch(err => next(err));
+};
+
+const destroy = (req, res, next) => {
+  
+};
 
 module.exports = controller({
   index,
-  // show,
+  show,
   addToCart
 }, {before: [
   {method: authenticate, except: ['index', 'show']}
