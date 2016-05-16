@@ -18,10 +18,13 @@ module.exports = require('lib/wiring/routes')
 
 
 .resources('users', { only: ['index', 'show'] })
-
+// orders routes
 .get('/orders', 'orders#index')
 .post('/orders', 'orders#create')
 .get('/orders/:id', 'orders#show')
+.patch('/orders/:id', 'orders#update')
+.delete('/orders/:id', 'orders#destroy')
+
 
 .resources('products')
 

@@ -27,10 +27,41 @@ const show = (req, res, next) => {
   .catch(err => next(err));
 };
 
+const update = (req, res, next) => {
+  let search = {_id: req.params.id, _owner: req.currentUser._id};
+  Order.findOne(search)
+  .then(order => {
+    if(!order) {
+      return next();
+    }
+
+    delete req.body._owner;
+    return order.update(req.body.order)
+    .then(() => res.sendStatus(200));
+  })
+  .catch(err => next(err));
+};
+
+const destroy = (req, res, next) => {
+  let search = {_id: req.params.id, _owner: req.currentUser._id};
+  Order.findOne(search)
+  .then(order => {
+    if(!order){
+      return next();
+    }
+
+  return order.remove()
+  .then(() => res.sendStatus(200))
+  .catch(err => next(err));
+  });
+};
+
 module.exports = controller({
   index,
   create,
-  show
+  show,
+  update,
+  destroy
 }, {before: [
   {method: authenticate, except: ['index'] },
 ], });
