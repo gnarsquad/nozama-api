@@ -12,7 +12,7 @@ const addToCart = (req, res, next) => {
   let lineItem = req.body.lineItems;
     console.log(lineItem);
   User.findById(req.currentUser._id)
-  .then((user) => user.update({$push: {"cart": lineItem}}))
+  .then((user) => user.update({$push: {"cart": req.body}}))
   .then(() => res.sendStatus(200))
   .catch(err => next(err));
 };
@@ -26,17 +26,19 @@ const index = (req, res, next) => {
 
 const show = (req, res, next) => {
   // User.findById(req.currentUser._id)
+  // let user = req.currentUser._id;
   User.findById(req.currentUser._id)
   .then(cart => cart ? res.json({ cart }): next())
   .catch(err => next(err));
 };
 
-const update = (req, res, next) => {
-  console.log(req.body.productid + "asdf");
-  User.findByIdAndUpdate(req.currentUser._id, {
-      '$pull': { 'cart':{'productid': req.body.productid}
-      }
-  })
+const destroy = (req, res, next) => {
+  console.log(req.body.productid);
+  // findById .then user is the argment
+  // return user.update()
+  User.findById(req.currentUser._id)
+    .then((user) =>
+    user.update( {'$pull': {'cart': {'productid': req.body.productid}}}))
     .then(() => res.sendStatus(200))
     .catch(err => next(err));
 };
@@ -46,7 +48,7 @@ module.exports = controller({
   index,
   show,
   addToCart,
-  update,
+  destroy,
 }, {before: [
   {method: authenticate, except: ['index']}
 ]});
