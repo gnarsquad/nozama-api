@@ -15,8 +15,13 @@ module.exports = require('lib/wiring/routes')
 .post('/sign-in', 'users#signin')
 .delete('/sign-out/:id', 'users#signout')
 .patch('/change-password/:id', 'users#changepw')
-.post('/carts', 'carts#addToCart')
 
+// cart routes
+.post('/cart', 'carts#addToCart')
+// cart id....?
+.delete('/cart', 'carts#destroy')
+.get('/cart', 'carts#index')
+.get('/cart/show', 'carts#show')
 
 .resources('users', { only: ['index', 'show'] })
 // orders routes
@@ -29,9 +34,6 @@ module.exports = require('lib/wiring/routes')
 
 .resources('products')
 
-.get('/carts', 'carts#index')
-// .get('/carts/:id', 'carts#show')
-.post('/carts', 'carts#addToCart')
 
 
 // all routes created
