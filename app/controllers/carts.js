@@ -12,7 +12,7 @@ const addToCart = (req, res, next) => {
   let lineItem = req.body.lineItems;
     console.log(lineItem);
   User.findById(req.currentUser._id)
-  .then((user) => user.update({$push: {"cart": req.body}}))
+  .then((user) => user.update({$push: {"cart": req.body.lineItems}}))
   .then(() => res.sendStatus(200))
   .catch(err => next(err));
 };
@@ -25,12 +25,13 @@ const index = (req, res, next) => {
 };
 
 const show = (req, res, next) => {
-  // User.findById(req.currentUser._id)
-  // let user = req.currentUser._id;
+  let user = req.currentUser.cart;
+  console.log(req.currentUser.cart);
   User.findById(req.currentUser._id)
-  .then(cart => cart ? res.json({ cart }): next())
+  .then(() => res.json( user ))
   .catch(err => next(err));
 };
+
 
 const destroy = (req, res, next) => {
   console.log(req.body.productid);
@@ -41,6 +42,15 @@ const destroy = (req, res, next) => {
     user.update( {'$pull': {'cart': {'productid': req.body.productid}}}))
     .then(() => res.sendStatus(200))
     .catch(err => next(err));
+};
+
+const update = (req, res, next) => {
+  let product = req.body.product;
+
+  User.findById(req.currentUser._id)
+    .then((user) =>
+    user.update( {'$pull': {'cart': {'product':{'quantity'}}}})
+    )
 };
 
 
