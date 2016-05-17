@@ -19,9 +19,9 @@ module.exports = require('lib/wiring/routes')
 // cart routes
 .post('/cart', 'carts#addToCart')
 // cart id....?
-.patch('/cart/show', 'carts#update')
+.patch('/cart/update', 'carts#update')
 .get('/cart', 'carts#index')
-.get('/cart/:id', 'carts#show')
+.get('/cart/show', 'carts#show')
 
 .resources('users', { only: ['index', 'show'] })
 // orders routes
