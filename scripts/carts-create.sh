@@ -1,4 +1,4 @@
-TOKEN=YCYHfHN/MpqrGoAOCJUqE1lQzDn4YvXXSG1d2pGo+r0=--3Y+myeOQs4kyibFVqi36QclW1Ov7Z8w3eqiUTexWSo4=
+TOKEN=2sGx6Jrnbn4pI5TnJocgL8V5sAlw7nHZ/aYjNKncpeI=--6YHTiHAi9mtlFziMxLwls0L+E6YNva8pxJkwoVcScDQ=
 curl --include --request POST http://localhost:3000/carts \
   --header "Authorization: Token token=$TOKEN" \
   --header "Content-Type: application/json" \
