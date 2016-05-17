@@ -3,6 +3,7 @@
 const controller = require('lib/wiring/controller');
 const models = require('app/models');
 const Order = models.order;
+const stripe = require('stripe')('pk_test_La0sDwdMY4vZwGyewISFrpm4');
 
 const authenticate = require('./concerns/authenticate');
 
@@ -59,12 +60,27 @@ const destroy = (req, res, next) => {
   });
 };
 
+
+// STRIPE CHARGE GENERATOR
+
+
+const stripeCharge = (req, res, next) => {
+  stripe.charges.create({
+    amount: req.body.amount,
+    currency: "usd",
+    source: req.body.stripeToken,
+  }).then(charge => res.json({ charge }))
+  .catch(err => next(err));
+};
+
+
 module.exports = controller({
   index,
   create,
   show,
   update,
-  destroy
+  destroy,
+  stripeCharge
 }, {before: [
   {method: authenticate, except: ['index'] },
 ], });
