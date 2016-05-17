@@ -31,46 +31,22 @@ const show = (req, res, next) => {
   .catch(err => next(err));
 };
 
-const destroy = (req, res, next) => {
-  console.log(req.body.product + "asdf");
+const update = (req, res, next) => {
+  console.log(req.body.productid + "asdf");
   User.findByIdAndUpdate(req.currentUser._id, {
-      '$pull': { 'cart':{'productid': req.body.product}
+      '$pull': { 'cart':{'productid': req.body.productid}
       }
   })
     .then(() => res.sendStatus(200))
     .catch(err => next(err));
 };
-//     User.findById(req.currentUser._id)
-//     .then(user => {
-//       if (!user){
-//         next();
-//       }
-//       console.log(req.currentUser);
-//       // return res.sendStatus(204);
-//       User.update({_id: req.currentUser._id},
-//         {$pull:{ cart:{
-//                  $elemMatch: {productid:'5739eb783e7fa5497f620d30'} }
-//               }
-//             });
-//   // { $pull: { results: { answers: { $elemMatch: { q: 2, a: { $gte: 8 } } } } } },
-//     }).then(() => res.sendStatus(200))
-//     .catch(err => next(err));
-
-
-
-// const destroy = (req, res, next) => {
-//   User.findById(req.currentUser._id)
-//   .then(console.log(User))
-//     .then((user) => user.cart.remove())
-//     .catch(err => next(err));
-// };
 
 
 module.exports = controller({
   index,
   show,
   addToCart,
-  destroy,
+  update,
 }, {before: [
-  {method: authenticate, except: ['index', 'show']}
+  {method: authenticate, except: ['index']}
 ]});

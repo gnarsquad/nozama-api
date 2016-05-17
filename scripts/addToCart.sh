@@ -1,6 +1,5 @@
-ID=57389ed4f26cbe6d1075b42f
-TOKEN=J0q0lxZr4KMz+nh5QigGeeG55u09CVLfMOkYTQZb8mY=--vlgKaY65kgV24+OTF51kNr+gkPvnljDjTz/rlW5cFNQ=
-curl --include --request POST http://localhost:3000/additem \
+TOKEN=BAZvpD+knafEGSQSaIdRWOV5QkiOIlVkfahSZYSs/ik=--hyXagC58jzM1F4GSQfX2Oo0z4hoj348NDpFH+tWscFI=
+curl --include --request POST http://localhost:3000/carts \
   --header "Authorization: Token token=$TOKEN" \
   --header "Content-Type: application/json" \
   --data '{

@@ -17,11 +17,11 @@ module.exports = require('lib/wiring/routes')
 .patch('/change-password/:id', 'users#changepw')
 
 // cart routes
-.post('/carts', 'carts#addToCart')
+.post('/cart', 'carts#addToCart')
 // cart id....?
-.patch('/carts/:id', 'carts#destroy')
-.get('/carts', 'carts#index')
-.get('/carts/:id', 'carts#show')
+.patch('/cart/show', 'carts#update')
+.get('/cart', 'carts#index')
+.get('/cart/:id', 'carts#show')
 
 .resources('users', { only: ['index', 'show'] })
 // orders routes
