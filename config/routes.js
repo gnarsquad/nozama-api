@@ -18,7 +18,7 @@ module.exports = require('lib/wiring/routes')
 
 // cart routes
 .post('/cart', 'carts#addToCart')
-// cart id....?
+.patch('/cart', 'carts#update')
 .delete('/cart', 'carts#destroy')
 .get('/cart', 'carts#index')
 .get('/cart/show', 'carts#show')

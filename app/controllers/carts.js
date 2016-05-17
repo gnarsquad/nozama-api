@@ -25,10 +25,10 @@ const index = (req, res, next) => {
 };
 
 const show = (req, res, next) => {
-  let user = req.currentUser.cart;
-  console.log(req.currentUser.cart);
+  let tmpUser = req.currentUser.cart;
+  // console.log(req.currentUser.cart);
   User.findById(req.currentUser._id)
-  .then(() => res.json( user ))
+  .then(() => res.json({tmpUser}))
   .catch(err => next(err));
 };
 
@@ -45,13 +45,20 @@ const destroy = (req, res, next) => {
 };
 
 const update = (req, res, next) => {
-  let product = req.body.product;
+  // let product = req.body.productid;
 
   User.findById(req.currentUser._id)
     .then((user) =>
-    user.update( {'$pull': {'cart': {'product':{'quantity'}}}})
+    user.update({'$set':{'cart':{'quantity': {'quantity': req.body.quantity}}}})
     )
+    .then(() => res.sendStatus(200))
+    .catch(err => next(err));
 };
+
+// Person.update({'items.id': 2}, {'$set': {
+//     'items.$.name': 'updated item2',
+//     'items.$.value': 'two updated'
+// }}, function(err) { ...
 
 
 module.exports = controller({
@@ -59,6 +66,7 @@ module.exports = controller({
   show,
   addToCart,
   destroy,
+  update,
 }, {before: [
   {method: authenticate, except: ['index']}
 ]});

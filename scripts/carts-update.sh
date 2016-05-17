@@ -1,8 +1,8 @@
-ID=57389ed4f26cbe6d1075b42f
-TOKEN=JmTKVhjHlvw9JeM2llTZsPA9zM/x/gWe4uxs5NZYjxw=--m2NrkL/xwOnYJhHWKoYZda7ke+fx4M7Qaeil7A0W3oI=
-curl --include --request DELETE http://localhost:3000/cart \
-     --header "Authorization: Token token=$TOKEN" \
-     --header "Content-Type: application/json" \
-     --data '{
-         "productid": "5739eb783e7fa5497f620d36"
-     }'
+TOKEN=OjYEBtBshKr+Zo8jjJ/IpkNILFYa/Vhx03c6TIC3BdU=--/9Boa3DVOnSCdGBM1aNNvbnmkGu5BVEbpBQzgXYiZoc=
+curl --include --request PATCH http://localhost:3000/cart \
+  --header "Authorization: Token token=$TOKEN" \
+  --header "Content-Type: application/json" \
+  --data '{
+    "productid": "5739eb783e7fa5497f620d30",
+    "quantity": 2
+  }'
