@@ -20,6 +20,7 @@ module.exports = require('lib/wiring/routes')
 .post('/cart', 'carts#addToCart')
 .delete('/cart', 'carts#destroy')
 .get('/cart', 'carts#show')
+.patch('/cart', 'carts#updateQty')
 // .patch('/cart', 'carts#update')
 
 .resources('users', { only: ['index', 'show'] })
@@ -30,6 +31,7 @@ module.exports = require('lib/wiring/routes')
 .patch('/orders/:id', 'orders#update')
 .delete('/orders/:id', 'orders#destroy')
 
-
+// checkout
+.post('/charge', 'orders#createCharge')
 .resources('products')
 ;
