@@ -29,6 +29,7 @@ module.exports = require('lib/wiring/routes')
 .get('/orders/:id', 'orders#show')
 .patch('/orders/:id', 'orders#update')
 .delete('/orders/:id', 'orders#destroy')
+.post('/charge', 'orders#createCharge')
 
 
 .resources('products')
