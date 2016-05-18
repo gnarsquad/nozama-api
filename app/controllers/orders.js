@@ -13,11 +13,10 @@ const index = (req, res, next) => {
 };
 
 const create = (req, res, next) => {
-  console.log(req.body);
+  console.log(req.body.cart);
   let order = Object.assign(req, {
-    // once we are passing info from front-end:
-      // reactivate this!!!!!
-    // _owner: req.currentUser._id
+    _owner: req.currentUser._id,
+    items: req.body.cart
   });
   Order.create(order)
   .then(order => res.json({ order }))

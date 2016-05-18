@@ -8,7 +8,15 @@ const orderSchema = new mongoose.Schema({
        ref: 'User',
        required: false
      },
-    //  lineItems: [lineItem]
+     items: [
+       {
+         quantity: Number,
+         productid: String,
+         name: String,
+         price: Number,
+         image: String,
+      }
+    ]
    },
      {timestamps: true
  });
