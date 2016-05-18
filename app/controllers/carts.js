@@ -39,7 +39,6 @@ const destroy = (req, res, next) => {
     .catch(err => next(err));
 };
 
-<<<<<<< 4acf3bfa9f2a8d1344d70ee68f890566a466c967
 const empty = (req, res, next) => {
   User.findById(req.currentUser._id)
     .then((user) =>
@@ -63,10 +62,6 @@ const update = (req, res, next) => {
       }
       throw new HttpError(404);
     })
-    // .then((user) => {
-    //   console.log(user);
-    // //   user.update({'$set': {quantity: req.body.quantity}});
-    // })
     .then(() => res.sendStatus(200))
     .catch(err => next(err));
 };

@@ -4,7 +4,6 @@ const controller = require('lib/wiring/controller');
 const models = require('app/models');
 const Order = models.order;
 const stripe = require('stripe')('sk_test_uDTLkYo56xbc6pDAl6Y3oPZT');
-
 const authenticate = require('./concerns/authenticate');
 
 const index = (req, res, next) => {

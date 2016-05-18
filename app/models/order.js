@@ -1,7 +1,6 @@
 'use strict';
 
 const mongoose = require('mongoose');
-// const lineItem = require('app/models/lineitems');
 
 const orderSchema = new mongoose.Schema({
     _owner: {
