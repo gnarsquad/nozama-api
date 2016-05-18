@@ -24,7 +24,7 @@ const create = (req, res, next) => {
 };
 
 const show = (req, res, next) => {
-  Order.findById(req.currentUser._id)
+  Order.find({"_owner": req.currentUser._id})
   .then(order => order ? res.json({ order }): next())
   .catch(err => next(err));
 };
