@@ -114,35 +114,6 @@ const changepw = (req, res, next) => {
   ).catch(makeErrorHandler(res, next));
 };
 
-// const addToCart = (req, res, next) => {
-//   // console.log(req.body)
-//   // let user = Object.assign(req.body.lineItems, {
-//   //   // _owner: req.currentUser._id
-//   // });
-//   // lineItems.push(req.body.cart)
-//   // .then(lineItems => res.json({ lineItems }))
-//   // .catch(err => next(err));
-//   let lineItem = req.body.lineItems;
-//     console.log(lineItem);
-//   User.findById(req.currentUser._id)
-//   .then((user) => user.update({$push: {"cart": lineItem}}))
-//   .then(() => res.sendStatus(200))
-//   .catch(err => next(err));
-//
-//   // return user.update({$push: {"cart": lineItem}})
-// };
-
-// const create = (req, res, next) => {
-//   let example = Object.assign(req.body.example, {
-//     _owner: req.currentUser._id,
-//   });
-//   Example.create(example)
-//     .then(example => res.json({ example }))
-//     .catch(err => next(err));
-// };
-
-
-
 module.exports = controller({
   index,
   show,
@@ -150,7 +121,6 @@ module.exports = controller({
   signin,
   signout,
   changepw,
-  // addToCart
 }, { before: [
   { method: authenticate, except: ['signup', 'signin'] },
 ], });

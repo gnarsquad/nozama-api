@@ -2,33 +2,22 @@
 
 const controller = require('lib/wiring/controller');
 const models = require('app/models');
-// const Cart = models.user.cart;
-// const lineItems = models.lineItem;
 const User = models.user;
 const authenticate = require('./concerns/authenticate');
 
 
 const addToCart = (req, res, next) => {
-  let lineItem = req.body.lineItems;
-    console.log(lineItem);
+  console.log(req.body);
   User.findById(req.currentUser._id)
-  .then((user) => user.update({$push: {"cart": req.body.lineItems}}))
+  .then((user) => user.update({$push: {"cart": req.body}}))
   .then(() => res.sendStatus(200))
   .catch(err => next(err));
 };
 
-
-const index = (req, res, next) => {
-  User.find('cart')
-  .then(carts => res.json({ carts }))
-  .catch(err => next(err));
-};
-
 const show = (req, res, next) => {
-  let user = req.currentUser.cart;
-  console.log(req.currentUser.cart);
+  console.log("cart: " + req.currentUser.cart);
   User.findById(req.currentUser._id)
-  .then(() => res.json( user ))
+  .then(() => res.json({cart: req.currentUser.cart}))
   .catch(err => next(err));
 };
 
@@ -44,21 +33,20 @@ const destroy = (req, res, next) => {
     .catch(err => next(err));
 };
 
-const update = (req, res, next) => {
-  let product = req.body.product;
-
-  User.findById(req.currentUser._id)
-    .then((user) =>
-    user.update( {'$pull': {'cart': {'product':{'quantity'}}}})
-    )
-};
+// const update = (req, res, next) => {
+//   let product = req.body.product;
+//
+//   User.findById(req.currentUser._id)
+//     .then((user) =>
+//     user.update( {'$pull': {'cart': {'product': {'quantity'}}}})
+//     )
+// };
 
 
 module.exports = controller({
-  index,
   show,
   addToCart,
   destroy,
 }, {before: [
-  {method: authenticate, except: ['index']}
+  {method: authenticate}
 ]});
