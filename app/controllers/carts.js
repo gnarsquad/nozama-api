@@ -10,7 +10,13 @@ const HttpError = require('lib/wiring/http-error');
 const addToCart = (req, res, next) => {
   console.log(req.body);
   User.findById(req.currentUser._id)
-  .then((user) => user.update({$push: {"cart": req.body}}))
+  // .then((user) => user.update({$push: {"cart": req.body}}))
+  .then((user) => {
+    user.update({$push: {"cart": req.body}});
+    user.cart.push(req.body);
+    return user.save();
+  })
+
   .then(() => res.sendStatus(200))
   .catch(err => next(err));
 };
@@ -33,6 +39,7 @@ const destroy = (req, res, next) => {
     .catch(err => next(err));
 };
 
+<<<<<<< 4acf3bfa9f2a8d1344d70ee68f890566a466c967
 const empty = (req, res, next) => {
   User.findById(req.currentUser._id)
     .then((user) =>
@@ -63,6 +70,7 @@ const update = (req, res, next) => {
     .then(() => res.sendStatus(200))
     .catch(err => next(err));
 };
+
 
 
 module.exports = controller({
