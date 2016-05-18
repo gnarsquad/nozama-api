@@ -1,7 +1,7 @@
 'use strict';
 
 const mongoose = require('mongoose');
-const lineItem = require('app/models/lineitems');
+// const lineItem = require('app/models/lineitems');
 
 const orderSchema = new mongoose.Schema({
     _owner: {
@@ -9,7 +9,7 @@ const orderSchema = new mongoose.Schema({
        ref: 'User',
        required: false
      },
-     lineItems: [lineItem]
+    //  lineItems: [lineItem]
    },
      {timestamps: true
  });

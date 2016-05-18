@@ -7,9 +7,6 @@ const models = require('app/models');
 const User = models.user;
 
 
-// const lineItems = models.lineItem;
-
-
 const crypto = require('crypto');
 
 const authenticate = require('./concerns/authenticate');

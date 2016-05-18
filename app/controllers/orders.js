@@ -13,7 +13,7 @@ const index = (req, res, next) => {
 };
 
 const create = (req, res, next) => {
-  console.log(req.body.lineItems);
+  console.log(req.body);
   let order = Object.assign(req, {
     // once we are passing info from front-end:
       // reactivate this!!!!!
