@@ -1,5 +1,5 @@
-# ID=57389ed4f26cbe6d1075b42f
-TOKEN=3rI1LrU7YI8cIp7NlJTN8Z9LmVKmu0/fShq+WKe74UM=--Ctyz0HJzG6Qx4+oSxX/0QgrVMdWKPGzreNwJajTFiJs=
-curl  --request GET http://localhost:3000/cart/show \
+ID=573ba2a69312898ea6ed35a3
+TOKEN=2uZv/DLFFiz7Q99McHydpkBdpNk4mgWyqeqZ5nDhRC4=--Jjmo8HMLYj0Z2n2Y4MVXPUIvnax2OzVOseXpy080Sxg=
+curl  --include --request GET http://localhost:3000/user_cart \
   --header "Authorization: Token token=$TOKEN" \
-  --header "Content-Type: application/json" | jsonlint
+  --header "Content-Type: application/json"

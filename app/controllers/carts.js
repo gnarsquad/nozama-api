@@ -9,10 +9,9 @@ const authenticate = require('./concerns/authenticate');
 
 
 const addToCart = (req, res, next) => {
-  let lineItem = req.body.lineItems;
-    console.log(lineItem);
+  console.log(req.body);
   User.findById(req.currentUser._id)
-  .then((user) => user.update({$push: {"cart": req.body.lineItems}}))
+  .then((user) => user.update({$push: {"cart": req.body}}))
   .then(() => res.sendStatus(200))
   .catch(err => next(err));
 };
@@ -25,11 +24,18 @@ const index = (req, res, next) => {
 };
 
 const show = (req, res, next) => {
-  let tmpUser = req.currentUser.cart;
+  // let tmpUser = req.currentUser.cart;
   // console.log(req.currentUser.cart);
   User.findById(req.currentUser._id)
-  .then(() => res.json({tmpUser}))
+  // .then(console.log(req.currentUser.cart))
+  .then(() => res.json({cart: req.currentUser.cart}))
   .catch(err => next(err));
+  // User.findById(req.query.user_id).then (function(user){
+  // let cart = user.cart;
+  // return cart;
+// })
+// .then(cart => res.json({ cart }))
+// .catch(err => next(err));
 };
 
 
@@ -68,5 +74,5 @@ module.exports = controller({
   destroy,
   update,
 }, {before: [
-  {method: authenticate, except: ['index']}
+  {method: authenticate, except: []}
 ]});

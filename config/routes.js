@@ -20,8 +20,9 @@ module.exports = require('lib/wiring/routes')
 .post('/cart', 'carts#addToCart')
 .patch('/cart', 'carts#update')
 .delete('/cart', 'carts#destroy')
-.get('/cart', 'carts#index')
-.get('/cart/show', 'carts#show')
+// .get('/cart', 'carts#index')
+// .get('/cart/:id', 'carts#show')
+.get('/user_cart', 'carts#show')
 
 .resources('users', { only: ['index', 'show'] })
 // orders routes
