@@ -10,7 +10,6 @@ const HttpError = require('lib/wiring/http-error');
 const addToCart = (req, res, next) => {
   console.log(req.body);
   User.findById(req.currentUser._id)
-  // .then((user) => user.update({$push: {"cart": req.body}}))
   .then((user) => {
     user.update({$push: {"cart": req.body}});
     user.cart.push(req.body);
@@ -52,11 +51,7 @@ const update = (req, res, next) => {
     .then((user) => {
       for (let i = 0; i < user.cart.length; i++) {
         if (user.cart[i].productid === req.body.productid) {
-          console.log(user.cart[i]);
           user.cart[i].quantity = req.body.quantity;
-          console.log('add qty: ' + req.body.quantity);
-          console.log(user.cart[i]);
-          console.log(user);
           return user.save();
         }
       }
