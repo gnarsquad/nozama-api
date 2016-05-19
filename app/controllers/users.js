@@ -1,10 +1,11 @@
 'use strict';
 
-const debug = require('debug')('nozama-api:users');
+// const debug = require('debug')('nozama-api:users');
 
 const controller = require('lib/wiring/controller');
 const models = require('app/models');
 const User = models.user;
+
 
 const crypto = require('crypto');
 
@@ -96,7 +97,6 @@ const signout = (req, res, next) => {
 };
 
 const changepw = (req, res, next) => {
-  debug('Changing password');
   User.findOne({
     _id: req.params.id,
     token: req.currentUser.token,
@@ -106,7 +106,7 @@ const changepw = (req, res, next) => {
   ).then(user => {
     user.password = req.body.passwords.new;
     return user.save();
-  }).then((/* user */) =>
+  }).then((/*user*/) =>
     res.sendStatus(200)
   ).catch(makeErrorHandler(res, next));
 };
