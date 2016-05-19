@@ -3,10 +3,10 @@
 ## Links
 
 Deployed App:
-<>
+<http://gnarsquad.github.io/nozama-front-end>
 
 Heroku:
-<>
+<https://nozama-api.herokuapp.com>
 
 Front End Repository:
 <https://github.com/gnarsquad/nozama-front-end>
@@ -34,6 +34,7 @@ To check out, users must provide credit card information via stripe which is pro
 
 Example curl script:
 
+```sh
 TOKEN=JmTKVhjHlvw9JeM2llTZsPA9zM/x/gWe4uxs5NZYjxw=--m2NrkL/xwOnYJhHWKoYZda7ke+fx4M7Qaeil7A0W3oI=
 curl --include --request DELETE http://localhost:3000/cart \
      --header "Authorization: Token token=$TOKEN" \
@@ -42,6 +43,7 @@ curl --include --request DELETE http://localhost:3000/cart \
          "productid": "5739eb783e7fa5497f620d36",
          "quantity": "3"
      }'
+```
 
 ### Orders Routes
 
@@ -63,6 +65,7 @@ curl --include --request DELETE http://localhost:3000/cart \
 
 Example curl script:
 
+```sh
 TOKEN="2a4CTcSPtFvk8imstqtqmayTZOGtKtnpp10z8o0TTMs=--AH7GSLohUWDOvjgHr4mIWhZyZk98DVv8gxg/jbcmZ+I="
 curl --include --request POST http://localhost:3000/orders \
   --header "Authorization: Token token=nqDPgVuDMHsMWG09PRMmoX3lx2QarC6GPr669s36QUI=--fTbpOwg+b1JGuMkSiTHokabkMx9tRzIYEP+yILJbZxY=" \
@@ -76,6 +79,7 @@ curl --include --request POST http://localhost:3000/orders \
           "price": "1000000000"
         }
   }'
+```
 
 ### Authentication
 
