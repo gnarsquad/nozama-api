@@ -12,6 +12,7 @@ Front End Repository:
 <https://github.com/gnarsquad/nozama-front-end>
 
 ERD:
+<http://i.imgur.com/iOsre56.jpg>
 
 ## Description
 
@@ -51,6 +52,14 @@ curl --include --request DELETE http://localhost:3000/cart \
 | Get    | '/orders/:id' |   'orders#show'   |
 | Patch  | '/orders/:id' | 'orders#update'   |
 | Delete | '/orders/:id' | 'orders#destroy'  |
+
+### Stripe route
+
+.post('/charge', 'orders#createCharge')
+
+| Verb   | Uri Pattern   | Controller Action |
+|--------|---------------|-------------------|
+| Post    | '/charge'    | 'orders#createCharge' |
 
 Example curl script:
 
