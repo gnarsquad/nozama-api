@@ -5,6 +5,7 @@
 const controller = require('lib/wiring/controller');
 const models = require('app/models');
 const Product = models.product;
+const configureName = require('../../scripts/configure-name');
 
 const authenticate = require('./concerns/authenticate');
 
@@ -56,12 +57,28 @@ const destroy = (req, res, next) => {
     .catch(err => next(err));
 };
 
+const searchForProduct = (req, res, next) => {
+  // console.log(req.body)
+  let key = Object.keys(req.query);
+  let searchInput = key.toString();
+  let searchName = configureName(searchInput);
+
+  Product.find().then(products => products.forEach((product) => {
+    let name = product.name;
+    let lowerCaseName = configureName(name);
+    if (lowerCaseName.includes(searchName)) {
+      res.json({product});
+    }
+  })).catch(err => next(err));
+};
+
 module.exports = controller({
   index,
   show,
   create,
   update,
   destroy,
+  searchForProduct,
 }, { before: [
   { method: authenticate, except: ['show', 'index'] },
 ], });
