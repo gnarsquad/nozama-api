@@ -26,6 +26,10 @@ const productSchema = new mongoose.Schema({
   // toJSON: { virtuals: true },
 });
 
+productSchema.virtual('normalized').get(function () {
+  return this.name.replace(' ', '').toLowerCase();
+});
+
 const Product = mongoose.model('Product', productSchema);
 
 module.exports = Product;

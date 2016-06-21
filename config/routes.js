@@ -35,4 +35,7 @@ module.exports = require('lib/wiring/routes')
 // checkout
 .post('/charge', 'orders#createCharge')
 .resources('products')
+
+// search
+.get('/search', 'products#searchForProduct')
 ;
